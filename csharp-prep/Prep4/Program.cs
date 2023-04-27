@@ -22,9 +22,11 @@ class Program
         // sum is the method to get the total of my list
         int total = numbers.Sum();
         Console.WriteLine($"the sum is: {total}");
+       
         // Compute the average of the numbers in the list.
         double averageList = numbers.Average();
         Console.WriteLine($"Average: {averageList}");
+       
         // Get the largest number if the list using "max()" method
         int largestNumber = numbers.Max();
         Console.WriteLine($"The largest number is: {largestNumber}");
