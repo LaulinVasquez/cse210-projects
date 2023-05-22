@@ -7,43 +7,41 @@ class Program
     {
     // new variables that contains the methods used in this program
     Load loadFile = new Load();
-    Entry prompts = new Entry();
-    saveFile promptSaver = new saveFile();
-    // promptList will record all user inputs and prompts so it can be save into the file later on.
-    List<string> entryList = new List<string>();
-    // create user variable to use while loop
+    Entry entry = new Entry();
+    saveFile save = new saveFile();
     string user = "";
 
-    while (user != "quit")
+    while (user != "5")
     {
+        // Set date Time to the Entry Class
         DateTime date = DateTime.Now;
-        // date is really important, but
-        prompts._dateTime = date.ToString("dddd, dd MMMM yyyy - hh:mm tt");
+        entry._dateTime = date.ToString("dddd, dd MMMM yyyy - hh:mm tt");
 
         // Display Menu
         Console.WriteLine("Please select one of the following choices");
         Console.WriteLine($"1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
         Console.Write("What would you like to do? ");
+        
         user = Console.ReadLine();
        
         if (user == "write" || user == "1")
         {
-            prompts.displayPrompts();
-            prompts._Entry = Console.ReadLine();
-            // Save the prompt with the date into the List and the user answer to the List
-            entryList.Add($"Date: {prompts._dateTime} Prompt: {prompts._randomPrompt}");
-            entryList.Add($"{prompts._Entry}\n");
+            // Display prompts from Entry class
+            entry.displayPrompts();
+            entry._Entry = Console.ReadLine();
+            //  User entry with prompt will be save with this function
+            entry.journal();
         }
         if (user == "display" || user == "2")
         {
         //   you can check if your journal was loaded or not, the message below will pop ups to inform
-            if (entryList.Count == 0)
+            if (entry._entryList.Count == 0)
             {
                 Console.WriteLine("Sorry but your journal is empty, did you load your journal?");
             }
             else
             {
-                foreach(string line in entryList)
+                foreach(string line in entry._entryList)
                 {
                     Console.WriteLine(line);
                 }
@@ -53,18 +51,18 @@ class Program
         { 
           Console.Write("Enter file name: ");
           loadFile._fileReference = Console.ReadLine();
-          loadFile.LoadFile(entryList);
+          loadFile.LoadFile(entry._entryList);
         }
         if (user == "save" || user == "4")
         {
-            // Save user inputs into the journal
+            // Save user entries into the journal file 
             Console.Write("what's the name of the file? ");
-            string userRespond = Console.ReadLine();
-            promptSaver._fileName = userRespond;
+            save._fileName = Console.ReadLine();
+            
             // this method below will execute the function in the saver class to push the information added in the promptList to the file
-            promptSaver.SaveToFile(entryList);
+            save.SaveToFile(entry._entryList);
         }        
     }
-
+    Console.WriteLine("Journal Closed");
     }
 }

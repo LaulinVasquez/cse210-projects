@@ -3,14 +3,11 @@ using System.IO;
 using System.Collections.Generic;
 public class Entry
 {
-
-    public List<string> _promptGenerator = new List<string>();   
-    // 
+    public List<string> _promptGenerator = new List<string>();  
+    public List<string> _entryList = new List<string>(); 
     public string _randomPrompt;
-
     public string _dateTime;
-    public string _Entry;
-    
+    public string _Entry;  
     public void displayPrompts()
     {
        _promptGenerator.Add("Who was the most interesting person I interacted with today?");
@@ -25,7 +22,8 @@ public class Entry
         _randomPrompt = _promptGenerator[_index];
         Console.WriteLine(_promptGenerator[_index]);
     }
-
-    
-
+    public void journal(){
+        _entryList.Add($"Date {_dateTime} Prompt: {_randomPrompt}");
+        _entryList.Add($"{_Entry}\n");
+    }
 }
