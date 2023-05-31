@@ -6,14 +6,12 @@ class Program
     static void Main(string[] args)
     {
     // new variables that contains the methods used in this program
-    Load loadFile = new Load();
     Entry entry = new Entry();
-    saveFile save = new saveFile();
     journal Journal = new journal();
     
     string user = "";
 
-    while (user != "5")
+    do
     {
         // Set date Time to the Entry Class
         DateTime date = DateTime.Now;
@@ -28,22 +26,22 @@ class Program
        
         if (user == "write" || user == "1")
         {
-            // Display prompts from Entry class
             entry.displayPrompts();
             entry._Entry = Console.ReadLine();
+
             //  User entry with prompt will be save with this function
-            entry.entry();
+            Journal.addEntry(entry.entry());
         }
         if (user == "display" || user == "2")
         {
         //   you can check if your journal was loaded or not, the message below will pop ups to inform
-            if (entry._entryList.Count == 0)
-            {
-                Console.WriteLine("Sorry but your journal is empty, did you load your journal?");
+            if (Journal._entryList.Count() == 0)
+            {   
+                Console.WriteLine("Sorry but your journal is empty, load your journal\n ");
             }
             else
             {
-                foreach(string line in entry._entryList)
+                foreach(string line in Journal._entryList)
                 {
                     Console.WriteLine(line);
                 }
@@ -51,20 +49,22 @@ class Program
         }
         if (user == "load" || user == "3")
         { 
+
           Console.Write("Enter file name: ");
-          loadFile._fileReference = Console.ReadLine();
-          loadFile.LoadFile(entry._entryList);
+          Journal._fileName= Console.ReadLine();
+          Journal.LoadFile(Journal._entryList);
+
         }
         if (user == "save" || user == "4")
         {
             // Save user entries into the journal file 
             Console.Write("what's the name of the file? ");
-            save._fileName = Console.ReadLine();
-            
-            // this method below will execute the function in the saver class to push the information added in the promptList to the file
-            save.SaveToFile(entry._entryList);
+            Journal._fileName = Console.ReadLine(); 
+            Journal.SaveToFile(Journal._entryList);
+
         }        
     }
+    while (user != "5");
     Console.WriteLine("Journal Closed");
     }
 }
