@@ -9,6 +9,8 @@ class Program
     Load loadFile = new Load();
     Entry entry = new Entry();
     saveFile save = new saveFile();
+    journal Journal = new journal();
+    
     string user = "";
 
     while (user != "5")
@@ -30,7 +32,7 @@ class Program
             entry.displayPrompts();
             entry._Entry = Console.ReadLine();
             //  User entry with prompt will be save with this function
-            entry.journal();
+            entry.entry();
         }
         if (user == "display" || user == "2")
         {

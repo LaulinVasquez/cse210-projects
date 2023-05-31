@@ -22,8 +22,8 @@ public class Entry
         _randomPrompt = _promptGenerator[_index];
         Console.WriteLine(_promptGenerator[_index]);
     }
-    public void journal(){
-        _entryList.Add($"Date {_dateTime} Prompt: {_randomPrompt}");
-        _entryList.Add($"{_Entry}\n");
+    public void entry(){
+        string text1 = $"Date {_dateTime} Prompt: {_randomPrompt}";
+        string text2 = $"{_Entry}\n";
     }
 }
