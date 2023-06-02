@@ -4,16 +4,27 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("un malito");
+        Person person1 = new Person();
+        person1.SetName("kevin");
+        person1.SetLastName("vasquez");
 
-        for (int i = 10; i > 0; i--)
+        Console.WriteLine(person1.GetId());
+
+        for (int i = 5; i > 0; i--)
         {
-            Console.Write(i);
+            Console.Write($".");
             Thread.Sleep(1000);
-            Console.Write("\b");
+            Console.Write("\b \b");
         }
 
-        Console.WriteLine("you made it");    
+
+        Professional person2 = new Professional();
+        person2.SetName("laulin");
+        person2.SetLastName("vasquez");
+        person2.SetProfession("senior developer");
+        person2.SetTime(3);
+
+        Console.WriteLine(person2.GetBio());
 
     }
 }

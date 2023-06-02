@@ -1,18 +1,34 @@
 using System;
 using System.Collections.Generic;
 
-class Person
+public class Person
 {
-    private string _name;
-    public List<string> _scripture;
-    public string Name
+    protected string _name;
+    protected string _lastName;
+
+    public string GetName()
     {
-        // here you get the value of _name but in order to acces to the _name value you have to set some
-        get{return _name;}
-        set{_name = value;}
+        return _name;
     }
-    public void scripture()
+
+    public void SetName(string name)
     {
-        _scripture = new List<string>();
+        _name = name;
     }
+
+    public string GetLastName()
+    {
+        return _lastName;
+    }
+
+    public void SetLastName(string lastName)
+    {
+        _lastName = lastName;
+    }
+
+    public string GetId()
+    {
+        return $"{_name} {_lastName}";
+    }
+
 }
