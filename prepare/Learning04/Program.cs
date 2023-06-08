@@ -12,8 +12,9 @@ class Program
         Console.WriteLine(assignment2.GetSummary());
         Console.WriteLine(assignment2.GetHomeworkList());
         Console.WriteLine(" ");
-
-        WritingAssigment assigment3 = new WritingAssigment("Laurin Vasquez", "European history", "The Causes of World War II");
+        Console.WriteLine("Enter your name");
+        string name = Console.ReadLine();
+        WritingAssigment assigment3 = new WritingAssigment(name, "European history", "The Causes of World War II");
         Console.WriteLine(assigment3.GetSummary());
         Console.WriteLine(assigment3.GetWritingInformation());
     }
