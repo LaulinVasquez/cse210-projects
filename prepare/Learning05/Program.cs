@@ -4,17 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        string user = "";
-        Console.WriteLine("Add something into a list:");
-        List<string>item = new List<string>();
-        do
-        {
-            Console.Write("> ");
-            user = Console.ReadLine();
-            item.Add(user);
+        square s = new square("red", 8);
+        circle c = new circle("blue", 6);
+        rectangle r = new rectangle("yellow", 5,10);
 
+        List<Shape> figures = new List<Shape>();
+        figures.Add(s);
+        figures.Add(c);
+        figures.Add(r);
+
+        foreach(Shape figure in figures)
+        {
+            Console.WriteLine($"Color: {figure.GetColor()}, length: {figure.GetArea()}");
         }
-        while (user != "stop");
-        Console.WriteLine($"You listed {item.Count} items");
+
     }
 }
