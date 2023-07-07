@@ -47,7 +47,8 @@ public class ChecklistGoal : Goal
     {
         return $"{GetGoal()} ({GetDescription()}) -- currently completed: {_completed}/{_target}";
     }
-    public override int RecordEvent(){
+    public override int RecordEvent()
+    {
         _completed++;
         int totalPoints = 0;
         if (_completed == _target)

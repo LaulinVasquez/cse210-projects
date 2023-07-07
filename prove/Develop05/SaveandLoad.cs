@@ -7,6 +7,8 @@ public class SaveAndLoad
     private List<string> _goalListString = new List<string>();
     private List<string> _animation = new List<string>();
     private int _total;
+    private Goal g;
+
     public void SetGoalToList(Goal g)
     {
         _goalList.Add(g);
@@ -17,7 +19,7 @@ public class SaveAndLoad
     }
     public void Spinner()
     {
-        
+          
         int i = 0;
         _animation.Add("|");
         _animation.Add("/");
@@ -129,6 +131,7 @@ public class SaveAndLoad
                 c.SetBonus(bonus);
                 c.SetTargets(target);
                 c.Setcompleted(completed);
+                
                 if (completed == target)
                 {
                     c.SetCheck(true);
