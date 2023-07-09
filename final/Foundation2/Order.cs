@@ -53,5 +53,7 @@ public class Order
         Console.WriteLine("-------------------------------------------------------------");
         Console.WriteLine("Shipping Address:\n");
         _customer.GetCustomerDetails();
+
+        Console.WriteLine("Thank you for your order!\n");
     }
 }
